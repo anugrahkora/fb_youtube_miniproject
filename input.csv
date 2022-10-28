@@ -1,3 +1,5 @@
+hxxp
+hxxps
 malware
 ransomware
 botnet
@@ -26,23 +28,35 @@ phishing
 phishing kit
 bug
 cve
+CVE
 denial
 exploit
 injection
 threat
 r o o t k i t
+rootkit
 s h e l l c o d e
+shellcode
 s q l i
+sqli
 k e yl o g gi n g
+keylogging
 0day
 c ybe r  a t t a c k
+cyberattack
 k e yl o g g e r
+keylogger
 password cracker
 m e t a s pl oi t
+metasploit
 r e d u c t o r
+reductor
 zombie  proxy
 C&C s e r v e r
+c&C server
 SQL injectable
 l e a k e d  c r e d e n t i a l s
+leaked credentials
 remote  r o o t
+remote root
 security exploit

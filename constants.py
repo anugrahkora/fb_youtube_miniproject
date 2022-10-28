@@ -1,0 +1,5 @@
+url_extract_pattern = "https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)"
+url_extract_pattern2 = "hxxp?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)"
+url_extract_pattern_no_http = "^[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+domain_expression="(?<=\.)([^.]+)(?:\.(?:co\.uk|ac\.us|com|net|org|info|coop|int|co|ac|ie|co|ai|eu|ca|icu|top|xyz|tk|cn|ga|cf|nl|us|eu|de|hk|am|tv|bingo|blackfriday|gov|edu|mil|arpa|au|ru|[^.]+(?:$|\n)))"
+cve_expression="CVE-\d{4}-\d{4,7}"
