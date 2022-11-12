@@ -87,7 +87,7 @@ for keys in keywords:
                 year = datetime.datetime.utcfromtimestamp(
                     submission.created).year
                 
-                if year == 2021 and year == 2022:
+                if year == 2021 or year == 2022:
                     data.append([submission.id, submission.name, submission.title, submission.selftext, total_ioc, 'https://reddit.com' +
                                 submission.permalink, submission.url, datetime.datetime.utcfromtimestamp(submission.created)])
                     count += 1
