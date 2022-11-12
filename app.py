@@ -28,26 +28,25 @@ count1 = 0
 
 posts = []
 
+selectedMonth = 10
+selectedYear = 2021
 
+# help(reddit.subreddit('all').search())
 for keys in keywords:
     try:
-        for submission in reddit.subreddit("all").search(keys, limit=None):
+        for submission in reddit.subreddit('all').search(keys, limit=None, ):
 
             if any(ele in submission.title for ele in keywords):
 
-                # print(datetime.datetime.utcfromtimestamps
-                #       (submission.created_utc))
-                # iocList=[]
-                # print('https://reddit.com'+submission.permalink)
                 url = list(iocextract.extract_urls(
-                    submission.selftext, refang=True))
+                    submission.selftext,))
                 # print(url)
                 url = listToString(list(set(url)))
                 url = str.splitlines(url)
                 url = listToString(list(set(url)))
 
                 ip = list(iocextract.extract_ips(
-                    submission.selftext, refang=True))
+                    submission.selftext))
                 ip = listToString(list(set(ip)))
                 ip = str.splitlines(ip)
                 ip = listToString(list(set(ip)))
@@ -74,14 +73,25 @@ for keys in keywords:
                 cves = str.splitlines(cves)
                 cves = listToString(list(set(cves)))
 
-                total_ioc = list(set([url, ip, ipv4, ipv6, hashes, cves]))
-                total_ioc = str.splitlines(listToString(total_ioc))
-                # total_i = list(set(ip+ipv4+ipv6+))
+                domains = searchDomain(domain_expression, submission.selftext)
+                domains = listToString(list(set(domains)))
+                domains = str.splitlines(domains)
+                domains = listToString(list(set(domains)))
 
-                data.append([submission.id, submission.name, submission.title, submission.selftext, total_ioc, 'https://reddit.com' +
-                            submission.permalink, submission.url, datetime.datetime.utcfromtimestamp(submission.created)])
-                count += 1
-                print(count)
+                total_ioc = list(
+                    set([url, ip, ipv4, ipv6, hashes, cves, domains]))
+                total_ioc = str.splitlines(listToString(total_ioc))
+
+                month = datetime.datetime.utcfromtimestamp(
+                    submission.created).month
+                year = datetime.datetime.utcfromtimestamp(
+                    submission.created).year
+                
+                if year == 2021 and year == 2022:
+                    data.append([submission.id, submission.name, submission.title, submission.selftext, total_ioc, 'https://reddit.com' +
+                                submission.permalink, submission.url, datetime.datetime.utcfromtimestamp(submission.created)])
+                    count += 1
+                    print(count)
 
     except Forbidden:
         print("We\'ve been banned on "+listToString(keys))
